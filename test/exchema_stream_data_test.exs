@@ -64,7 +64,7 @@ defmodule ExchemaStreamDataTest do
     one_of([
       {T.OneStructOf, constant([SimpleStruct, RecursiveStruct])},
       Recursive,
-      RecursiveStruct,
+      RecursiveStruct
     ])
   end
 end
