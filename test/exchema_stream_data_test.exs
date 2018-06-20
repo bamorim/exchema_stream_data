@@ -25,6 +25,21 @@ defmodule ExchemaStreamDataTest do
     end
   end
 
+  property "we can override the generator for a specific type" do
+    check all value <- ExchemaStreamData.gen(T.Integer.NonNegative, &overrides/2) do
+      assert value >= 10
+    end
+  end
+
+  def overrides(type, original) do
+    case type do
+      T.Integer.NonNegative ->
+        map(original, &(&1+10))
+      _ ->
+        original
+    end
+  end
+
   def types do
     one_of([
       T.Atom,

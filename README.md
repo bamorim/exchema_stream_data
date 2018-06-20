@@ -12,6 +12,24 @@ You would do something like
   end
 ```
 
+## Overriding generators
+
+```elixir
+ExchemaStreamData.gen(MyType, &overrides/2)
+
+def overrides(type, original) do
+  case type do
+    MyType ->
+      StreamData.constant(10)
+    Exchema.Types.Integer.Positive ->
+      # Will return only `10, 20, 30, 40, ...`
+      StreamData.map(original, &(&1*10))
+    _ ->
+      original
+  end
+end
+```
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
