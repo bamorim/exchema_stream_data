@@ -21,8 +21,8 @@ defmodule ExchemaStreamData.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:exchema, github: "bamorim/exchema"},
-      {:stream_data, "~> 0.1", only: :test}
+      {:exchema, "~> 0.3.0"},
+      {:stream_data, "~> 0.4.2"}
     ]
   end
 end
